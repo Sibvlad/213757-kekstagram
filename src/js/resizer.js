@@ -37,8 +37,8 @@
       // Изначально предлагаемое кадрирование — часть по центру с размером в 3/4
       // от размера меньшей стороны.
       this._resizeConstraint = new Square(
-          this._container.width / 2 - side / 2 ,
-          this._container.height /2  - side / 2,
+          this._container.width / 2 - side / 2,
+          this._container.height / 2  - side / 2,
           side);
 
       // Отрисовка изначального состояния канваса.
@@ -110,7 +110,6 @@
       // нужно отрисовать и координаты его верхнего левого угла.
       // Координаты задаются от центра холста.
       this._ctx.drawImage(this._image, displX, displY);
-      
       //Задан фон картинке
       this._ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
       //Начало отрисовки фигуры
@@ -121,18 +120,15 @@
         (-this._resizeConstraint.side / 2) - this._ctx.lineWidth,
         this._resizeConstraint.side + this._ctx.lineWidth / 2,  
         this._resizeConstraint.side + this._ctx.lineWidth / 2);
-      this._ctx.fill('evenodd');
-        
+      this._ctx.fill('evenodd'); 
       this._ctx.fillStyle = 'white';
       this._ctx.font = '18px Open Sans';
       this._ctx.textAlign = 'center';
       this._ctx.textBaseline = 'hanging';
       this._ctx.fillText(this._image.naturalWidth + ' x ' + this._image.naturalHeight,
           0, -250);
-   
       // Отрисовка прямоугольника, обозначающего область изображения после
       // кадрирования. Координаты задаются от центра.
-        
       this._ctx.strokeRect(
         (-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2,
         (-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2,
