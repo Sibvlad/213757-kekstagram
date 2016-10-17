@@ -1,6 +1,6 @@
 'use strict';
 
-function getMessage(a, b) {
+exported getMessage(a, b) {
   if (a === true) {
     return 'Переданное GIF-изображение анимировано и содержит ' + b + ' кадров'; 
   } else if (a === false) {
@@ -17,7 +17,7 @@ function getMessage(a, b) {
     return 'Общая площадь артефактов сжатия: ' + artifactsSquare + ' пикселей';
   }  
   else if (Array.isArray(a)) {
-    var amountOfRedPoints = a.reduce(function(sum, current){
+    var amountOfRedPoints = a.reduce(function(sum, current) {
       return sum + current;
     }, 0); 
     return 'Количество красных точек во всех строчках изображения: ' + amountOfRedPoints;
