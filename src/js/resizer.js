@@ -106,11 +106,12 @@
 
       var displX = -(this._resizeConstraint.x + this._resizeConstraint.side / 2);
       var displY = -(this._resizeConstraint.y + this._resizeConstraint.side / 2);
-      },
+      
       // Отрисовка изображения на холсте. Параметры задают изображение, которое
       // нужно отрисовать и координаты его верхнего левого угла.
       // Координаты задаются от центра холста.
-      this._ctx.drawImage(this._image, displX, displY);  
+      this._ctx.drawImage(this._image, displX, displY); 
+      
       this._ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
       this._ctx.beginPath();
       this._ctx.rect(displX, displY, this._container.width, this._container.height);
