@@ -1,6 +1,6 @@
 'use strict';
-
-exported getMessage(a, b) {
+/* exported getMessage(a, b) */
+var getMessage = function(a, b) {
   if (a === true) {
     return 'Переданное GIF-изображение анимировано и содержит ' + b + ' кадров'; 
   } else if (a === false) {
