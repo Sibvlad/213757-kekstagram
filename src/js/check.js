@@ -24,3 +24,5 @@ function getMessage(a, b) {
     return 'Переданы некорректные данные';
   }
 }
+
+window.getMessage = getMessage;
