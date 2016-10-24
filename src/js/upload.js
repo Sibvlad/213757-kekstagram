@@ -78,7 +78,7 @@
   var button = document.querySelector('#resize-fwd');
 
   leftSide.min = 0;
-  topSide.min = 0; 
+  topSide.min = 0;
   side.min = 0;
 
   function resizeFormConstraint() {
@@ -101,19 +101,7 @@
       button.classList.add('disabled');
       return false;
     }
-  }
-
-  topSide.onchange = function() {
-    resizeFormIsValid();
-  }
-
-  leftSide.onchange = function() {
-    resizeFormIsValid();
-  }
-
-  side.onchange = function() {
-    resizeFormIsValid();
-  }
+  };
 
   /**
    * Форма загрузки изображения.
