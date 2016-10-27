@@ -233,8 +233,17 @@
 
       resizeForm.classList.add('invisible');
       filterForm.classList.remove('invisible');
+
+      setFilterFromCookie();
     }
   };
+
+  function setFilterFromCookie() {
+    var browserCookies; 
+    var filterName = browserCookies.get('upload-filter') || 'none';
+    document.querySelector('#upload-filter-' + filterName).checked = true;
+    filterImage.classList.add('filter-' + filterName);
+  }
 
   /**
    * Сброс формы фильтра. Показывает форму кадрирования.
@@ -260,7 +269,26 @@
 
     filterForm.classList.add('invisible');
     uploadForm.classList.remove('invisible');
+
+    saveFiltertoCookies();
   };
+
+  function saveFiltertoCookies() {
+    var element = document.querySelector('#upload-filter input[type=radio]:checked');
+    browserCookies.set('upload-filter', element.value, {expires: getDaysToExpireCookie() });
+  }
+
+  function getDaysToExpireCookie() {
+    var curDate = new Date();
+    var birthday = new Date(1906, 11, 9);
+    var thisYearBirthday = new Date(curDate.getFullYear(), birthday.getMonth(), birthday.getDate());
+    if (curDate > thisYearBirthday) {
+      return Math.ceil(curDate - thisYearBirthday) / (1000 * 60 * 60 * 24);
+    } else {
+      var lastYearBirthday = new Date( curDate.getFullYear() - 1, birthday.getMonth(), birthday.getDate());
+      return Math.ceil( (curDate - lastYearBirthday) / (1000 * 60 * 60 * 24) );
+    }
+  }
 
   /**
    * Обработчик изменения фильтра. Добавляет класс из filterMap соответствующий
