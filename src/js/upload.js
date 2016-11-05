@@ -23,6 +23,7 @@
     CUSTOM: 2
   };
 
+  var browserCookies = 'upload-filter';
   /**
    * Регулярное выражение, проверяющее тип загружаемого файла. Составляется
    * из ключей FileType.
@@ -239,7 +240,6 @@
   };
 
   function setFilterFromCookie() {
-    var browserCookies; 
     var filterName = browserCookies.get('upload-filter') || 'none';
     document.querySelector('#upload-filter-' + filterName).checked = true;
     filterImage.classList.add('filter-' + filterName);
