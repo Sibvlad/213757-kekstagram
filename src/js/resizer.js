@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+define('resizer', function() {
   /**
    * @constructor
    * @param {string} image
@@ -339,5 +339,6 @@
     this.y = y;
   };
 
-  window.Resizer = Resizer;
-})();
+
+  return Resizer;
+});
