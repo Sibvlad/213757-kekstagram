@@ -7,7 +7,7 @@
 
 'use strict';
 
-define(function() {
+define('upload', function() {
 
   /** @enum {string} */
   var FileType = {

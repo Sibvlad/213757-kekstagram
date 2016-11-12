@@ -1,22 +1,21 @@
 'use strict';
 
-define('pictures',
-   [
-     './load',
-     './getphoto'
-   ], function(load, getPhoto) {
-        var filters = document.querySelector('.filters');
-        var PICTURES_LOAD_URL = 'http://localhost:1507/api/pictures';
+requirejs([
+  './load',
+  './getphoto'
+], function(load, getPhoto) {
+  var filters = document.querySelector('.filters');
+  var PICTURES_LOAD_URL = 'http://localhost:1507/api/pictures';
 
-        var renderPhotos = function(data) {
-          data.forEach(function(picture) {
-            getPhoto(picture);
-          });
-        };
+  var renderPhotos = function(data) {
+    data.forEach(function(picture) {
+      getPhoto(picture);
+    });
+  };
 
-        filters.classList.add('hidden');
+  filters.classList.add('hidden');
 
-        load(PICTURES_LOAD_URL, renderPhotos);
+  load(PICTURES_LOAD_URL, renderPhotos);
 
-        filters.classList.remove('hidden');
-      });
+  filters.classList.remove('hidden');
+});
