@@ -1,6 +1,6 @@
 'use strict';
 
-requirejs([
+define([
   './load',
   './getphoto'
 ], function(load, getPhoto) {
