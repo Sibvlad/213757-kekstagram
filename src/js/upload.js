@@ -7,8 +7,10 @@
 
 'use strict';
 
-define('upload', function() {
+var browserCookies = require('./lib/cookie.js');
+var utils = require('./utils');
 
+(function() {
   /** @enum {string} */
   var FileType = {
     'GIF': '',
@@ -24,7 +26,6 @@ define('upload', function() {
     CUSTOM: 2
   };
 
-  var browserCookies = 'upload-filter';
   /**
    * Регулярное выражение, проверяющее тип загружаемого файла. Составляется
    * из ключей FileType.
@@ -275,20 +276,9 @@ define('upload', function() {
   };
 
   function saveFiltertoCookies() {
+    var validityPeriod = utils.getDaysToExpireCookie();
     var element = document.querySelector('#upload-filter input[type=radio]:checked');
-    browserCookies.set('upload-filter', element.value, {expires: getDaysToExpireCookie() });
-  }
-
-  function getDaysToExpireCookie() {
-    var curDate = new Date();
-    var birthday = new Date(1906, 11, 9);
-    var thisYearBirthday = new Date(curDate.getFullYear(), birthday.getMonth(), birthday.getDate());
-    if (curDate > thisYearBirthday) {
-      return Math.ceil(curDate - thisYearBirthday) / (1000 * 60 * 60 * 24);
-    } else {
-      var lastYearBirthday = new Date( curDate.getFullYear() - 1, birthday.getMonth(), birthday.getDate());
-      return Math.ceil( (curDate - lastYearBirthday) / (1000 * 60 * 60 * 24) );
-    }
+    browserCookies.set('upload-filter', element.value, {expires: validityPeriod() });
   }
 
   /**
@@ -320,4 +310,4 @@ define('upload', function() {
 
   cleanupResizer();
   updateBackground();
-});
+})();

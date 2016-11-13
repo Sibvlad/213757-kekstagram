@@ -1,6 +1,6 @@
 'use strict';
 
-define('resizer', function() {
+(function() {
   /**
    * @constructor
    * @param {string} image
@@ -341,5 +341,5 @@ define('resizer', function() {
   };
 
 
-  return Resizer;
-});
+  window.Resizer = Resizer;
+})();
