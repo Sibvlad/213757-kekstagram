@@ -7,7 +7,7 @@
 
 'use strict';
 
-var browserCookies = require('./lib/cookie.js');
+var browserCookies = require('./lib/cookies.js');
 var utils = require('./utils');
 
 (function() {
